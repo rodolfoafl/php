@@ -1,0 +1,44 @@
+body {
+  background: #6C7A89;
+  font-family: 'Roboto', sans-serif;
+  margin: 0px;     
+}
+.container {
+  margin-top: 30px;     
+}
+.login { 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+.f-login {
+  padding: 18px;
+  box-shadow: inset 0px 12px #17A2B8;
+  
+  background: #fff;
+}
+.entrar {
+  width: 100%;
+}
+.title {
+  text-align: center;
+}
+.card {
+  width: 30%;
+  margin: 14px;
+}
+.card-header {
+  background: #17A2B8;
+  color: #fff;
+}
+.row {
+  justify-content: center;
+}
+.card-apartamento {
+  width: 100%;
+
+}
+.desativado {
+  opacity: 0.5;
+}
