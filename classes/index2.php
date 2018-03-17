@@ -2,9 +2,25 @@
     require_once('functions.php');
     index();
 ?>
+<?php 
+	$_GET['titulo'] = 'Condominios / <small>Cards</small>';
+    $_GET['cadastrar'] = 'cadastrarCondominio';
+    $_GET['atualizar'] = 'index2';
+    $_GET['modo'] = 'index';
+ ?>
 <?php include(HEADER_TEMPLATE); ?>
-<h1>Condominios</h1>
-<hr/>
+
+
+<?php if (!empty($_SESSION['message'])) : ?>
+	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<?php echo $_SESSION['message']; ?>
+	</div>
+	<?php clear_messages(); ?>
+<?php endif; ?>
+
+
+
 <?php if ($condominios) : ?>
 
 	<div class="row">		
@@ -14,7 +30,7 @@
 			<?php else : ?>
 				<div class="card text-center desativado">
 					<?php endif; ?>
-			<div class="card-header">
+			<div class="card-header bg-dark">
 				Condominio: <?php echo $condominio['id']; ?>
 			</div>
 			<div class="card-body">
@@ -25,9 +41,9 @@
 			<?php else : ?>
 				<p class="card-text">Desativado</p>
 				<?php endif; ?>
-				<a href="apartamentos.php" class="btn btn-info">Unidades</a>
-	<a href="#" class="btn btn-info">Editar</a>
-	<a href="#" class="btn btn-danger">Excluir</a>
+				<a href="detalhesCondominio.php?id=<?php echo $condominio['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+	<a href="editarCondominio.php?id=<?php echo $condominio['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+	<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $condominio['id']; ?>"><i class="fa fa-trash"></i> Excluir</a>
 			</div>
 			<div class="card-footer text-muted">
 				Data da ultima modificação: 20/03/2015
@@ -41,4 +57,7 @@
 		<td colspan="6">Nenhum registro encontrado.</td>
 	</tr>
 <?php endif; ?>
-<?php include(FOOTER_TEMPLATE); ?>
+
+<?php
+include('modal.php');
+include(FOOTER_TEMPLATE); ?>

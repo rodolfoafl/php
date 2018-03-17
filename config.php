@@ -12,7 +12,7 @@
 	}
 
 	if(!defined('BASEURL')){
-		define('BASEURL', '/sistema/');
+		define('BASEURL', '/php-master/');
 	}
 
 	if(!defined('DBAPI')){

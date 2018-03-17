@@ -20,7 +20,7 @@
 		if(!empty($_POST['condominio'])){
 			$condominio = $_POST['condominio'];
 			salvar('condominios', $condominio);
-			header('location: index.php');
+			header('location: index.php?id=4343');
 		}
 	}
 

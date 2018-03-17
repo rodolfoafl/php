@@ -2,26 +2,19 @@
     require_once('functions.php');
     index();
 ?>
-
+<?php 
+	$_GET['titulo'] = 'Condominios / <small>Lista</small>';
+    $_GET['cadastrar'] = 'cadastrarCondominio';
+    $_GET['atualizar'] = 'index';
+    $_GET['modo'] = 'index2';
+ ?>
 <?php include(HEADER_TEMPLATE); ?>
 
 <style>
-	header{
-		padding-top: 5%;
-	}
+	
 </style>
 
-<header>
-	<div class="row">
-		<div class="col-sm-6">
-			<h2>Condomínios</h2>
-		</div>
-		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" href="cadastrarCondominio.php"><i class="fa fa-plus"></i> Novo Condomínio</a>
-	    	<a class="btn btn-default" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
-	    </div>
-	</div>
-</header>
+
 
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
@@ -31,16 +24,18 @@
 	<?php clear_messages(); ?>
 <?php endif; ?>
 
-<hr>
+
+
+
 
 <table class="table table-hover">
-<thead>
+<thead class="bg-dark">
 	<tr>
 		<th>ID</th>
 		<th width="30%">Nome</th>
 		<th>Endereço</th>
 		<th>Status</th>
-		
+		<th></th>
 	</tr>
 </thead>
 <tbody>

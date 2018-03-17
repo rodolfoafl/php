@@ -1,5 +1,6 @@
 body {
-  background: #6C7A89;
+  background: #fff;
+  opacity: 0.9;
   font-family: 'Roboto', sans-serif;
   margin: 0px;     
 }
@@ -10,30 +11,33 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center
-}
-.f-login {
-  padding: 18px;
-  box-shadow: inset 0px 12px #17A2B8;
-  
-  background: #fff;
+  align-items: center;
+ 
 }
 .entrar {
   width: 100%;
 }
 .title {
+  color: #444;
   text-align: center;
 }
 .card {
   width: 30%;
   margin: 14px;
+  border: 1px solid rgba(000,000,000,0.3);
+  transition: border 0.7s;
+}
+.card:hover {
+  border: 1px solid rgba(000,000,000,0.5);
 }
 .card-header {
-  background: #17A2B8;
+
   color: #fff;
 }
 .row {
-  justify-content: center;
+ 
+  padding: 8px;
+
 }
 .card-apartamento {
   width: 100%;
@@ -41,4 +45,37 @@ body {
 }
 .desativado {
   opacity: 0.5;
+}
+.table {
+  background: #fff;
+  margin: 8px;
+}
+h2 {
+  color: #444;
+  margin: 0;
+
+  padding: 4px;
+}
+.text-right {
+  margin: 0;
+}
+header{
+  padding-top: 5%;
+
+}
+.hbar {
+  
+}
+thead {
+  color: #fff;
+}
+.linknav {
+  color: #fff;
+  font-size: 18px;
+  padding: 0 8px;
+  transition: box-shadow 0.3s;
+}
+.linknav:hover {
+  color: #fff;
+  box-shadow: 0px 2px ;
 }

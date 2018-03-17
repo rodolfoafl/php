@@ -3,9 +3,10 @@
   editar();
 ?>
 
-<?php include(HEADER_TEMPLATE); ?>
+<?php 
+$_GET['titulo'] = 'Editar Condominio / ' . '<small>'.$condominio['nome'].'</small>';
+include(HEADER_TEMPLATE); ?>
 
-<h2>Atualizar Condomínio</h2>
 
 <form action="editarCondominio.php?id=<?php echo $condominio['id']; ?>" method="post">
   <hr />
@@ -20,15 +21,20 @@
       <input type="text" class="form-control" name="condominio['endereco']" value="<?php echo $condominio['endereco']; ?>">
     </div>
 
-    <div class="form-group col-md-3">
-      <label for="campo3">Status: </label>
-      <input type="text" class="form-control" name="condominio['status']" value="<?php echo $condominio['status']; ?>">
+    <div class="form-group col-md-2">
+      <label for="campo2">Status: </label>
+      <select class="custom-select" name="condominio['status']">
+        <option value="0" >Desativado</option>
+        <option value="1" <?php  if($condominio['status']) {
+          echo 'selected';
+        } ?> >Ativo</option>
+      </select>
     </div>
   </div>
 
   <div id="actions" class="row">
     <div class="col-md-12">
-      <button type="submit" class="btn btn-primary">Salvar</button>
+      <button type="submit" class="btn btn-info">Salvar</button>
       <a href="index.php" class="btn btn-default">Cancelar</a>
     </div>
   </div>

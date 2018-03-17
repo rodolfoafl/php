@@ -2,6 +2,9 @@
 	require_once 'config.php';
 	require_once DBAPI;
 
+	$_GET['titulo'] = 'Dashboard';
+   
+
 	include(HEADER_TEMPLATE);
 	$db = open_database();
 	/*if($db){
@@ -10,12 +13,12 @@
 		echo '<h1>ERRO: NÃO FOI POSSÍVEL CONECTAR!</h1>';
 	}*/
 ?>
-<h1>Dashboard</h1>
-<hr/>
+
+
 <?php if($db): ?>
 	<div class="row">		
 		<div class="col-xs-6 col-sm-3 col-md-2">			
-			<a href="classes/cadastrarCondominio.php" class="btn btn-primary">				
+			<a href="classes/cadastrarCondominio.php" class="btn btn-info">				
 				<div class="row">					
 					<div class="col-xs-12 text-center">						
 						<i class="fa fa-plus fa-5x"></i>					
@@ -27,7 +30,7 @@
 			</a>		
 		</div>	
 	<div class="col-xs-6 col-sm-3 col-md-2">			
-		<a href="classes" class="btn btn-default">				
+		<a href="classes/index.php" class="btn btn-info">				
 			<div class="row">					
 				<div class="col-xs-12 text-center">						
 					<i class="fa fa-user fa-5x"></i>					
