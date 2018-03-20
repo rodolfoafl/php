@@ -3,7 +3,7 @@ require_once 'config.php';
 require_once DBAPI;
 
   $_GET['titulo'] = 'Entrar';
-
+  
 include(HEADER_TEMPLATE);
 $db = open_database();
 ?>

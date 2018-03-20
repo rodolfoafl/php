@@ -37,7 +37,7 @@
 				<h5 class="card-title"><?php echo $condominio['nome']; ?></h5>
 				<p class="card-text"><?php echo $condominio['endereco']; ?></p>
 				<?php if($condominio['status']): ?>
-				<p class="card-text">Ativo</p>
+				<p class="card-text">Ativado</p>
 			<?php else : ?>
 				<p class="card-text">Desativado</p>
 				<?php endif; ?>

@@ -24,7 +24,7 @@ include(HEADER_TEMPLATE); ?>
 
 	<dt class="col-md-2">Status: </dt>
 	<dd class="col-md-10"><?php if($condominio['status']) {
-		echo "Ativo";
+		echo "Ativado";
 	} else {
 		echo "Desativado";
 	}?></dd>

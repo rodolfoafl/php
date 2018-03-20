@@ -27,7 +27,7 @@ include(HEADER_TEMPLATE); ?>
         <option value="0" >Desativado</option>
         <option value="1" <?php  if($condominio['status']) {
           echo 'selected';
-        } ?> >Ativo</option>
+        } ?> >Ativado</option>
       </select>
     </div>
   </div>

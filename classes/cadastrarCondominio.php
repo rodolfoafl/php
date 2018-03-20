@@ -25,7 +25,7 @@ include(HEADER_TEMPLATE); ?>
       <label for="campo2">Status: </label>
       <select class="custom-select" name="condominio['status']">
         <option value="0">Desativado</option>
-        <option value="1">Ativo</option>
+        <option value="1">Ativado</option>
       </select>
     </div>
   </div>

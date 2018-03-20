@@ -91,4 +91,13 @@
 		header('location: index.php');
 	}
 
+	/*
+	 function deletarGenerico($id = null, $tabela){
+		global $obj;
+		$obj = remover($tabela, $id);
+
+		header('location: index.php');
+	}
+	 * */
+	
 ?>

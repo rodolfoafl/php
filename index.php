@@ -3,14 +3,13 @@
 	require_once DBAPI;
 
 	$_GET['titulo'] = 'Dashboard';
-   
-
+	
 	include(HEADER_TEMPLATE);
 	$db = open_database();
 	/*if($db){
 		echo '<h1>BANCO DE DADOS CONECTADO!</h1>';
 	}else{
-		echo '<h1>ERRO: NÃO FOI POSSÍVEL CONECTAR!</h1>';
+		echo '<h1>ERRO: NÃƒO FOI POSSÃ�VEL CONECTAR!</h1>';
 	}*/
 ?>
 
@@ -24,7 +23,7 @@
 						<i class="fa fa-plus fa-5x"></i>					
 					</div>					
 					<div class="col-xs-12 text-center">						
-						<p>Novo Condomínio</p>					
+						<p>Novo CondomÃ­nio</p>					
 					</div>				
 				</div>			
 			</a>		
@@ -36,7 +35,7 @@
 					<i class="fa fa-user fa-5x"></i>					
 				</div>					
 				<div class="col-xs-12 text-center">						
-					<p>Condomínios</p>					
+					<p>CondomÃ­nios</p>					
 				</div>				
 			</div>			
 		</a>		
@@ -45,7 +44,7 @@
 <?php else : ?>		
 	<div class="alert alert-danger" role="alert">			
 		<p>
-			<strong>ERRO:</strong> Não foi possível Conectar ao Banco de Dados!
+			<strong>ERRO:</strong> NÃ£o foi possÃ­vel Conectar ao Banco de Dados!
 		</p>		
 	</div>	
 <?php endif; ?>	
