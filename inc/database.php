@@ -119,5 +119,25 @@
 		close_database($db);
 	}
 
+	function constroiDropDown($tabela){
+	    $db = open_database();
+	    
+	    $sql = "SELECT id, nome FROM $tabela";
+	    
+	    $result = $db->query($sql);	
+	    
+	    if($result->num_rows > 0){
+	        $select= '<select name="apartamento[\'id_condominio\']" class="form-control">';
+	        $select.= '<option value="" selected disabled hidden>Selecione um condomínio</option>';
+	        
+	        while($rs=$result->fetch_assoc()){
+	            $select.='<option value="'.$rs['id'].'">'.$rs['nome'].'</option>';
+	        }
+	    }
+	    $select.='</select>';
+	    return $select;
+	    
+	}
+	
 
 ?>

@@ -24,7 +24,7 @@
 		}
 	}
 
-	/*
+	
 	function adicionarGenerico($classe, $tabela){
 		if(!empty($_POST[$classe])){
 			$obj = $_POST[$classe];
@@ -32,7 +32,7 @@
 			header('location: index.php');
 		}
 	}
-	*/
+	
 
 	function editar(){
 		if(isset($_GET['id'])){
@@ -100,4 +100,9 @@
 	}
 	 * */
 	
+	function dropDown($tabela){
+	    $lista = constroiDropDown($tabela);
+	    echo $lista;
+	}
+
 ?>
