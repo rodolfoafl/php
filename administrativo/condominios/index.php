@@ -1,6 +1,6 @@
 <?php
-    require_once('functions.php');
-    index();
+require_once('../../administrativo/functions.php');
+    $condominios = listar('condominios');
 ?>
 <?php 
 	$_GET['titulo'] = 'Condominios / <small>Lista</small>';
@@ -68,5 +68,5 @@
 </table>
 
 <?php
-include('modal.php');
+include('../modal.php');
 include(FOOTER_TEMPLATE); ?>

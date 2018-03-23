@@ -53,9 +53,9 @@ echo '
     ';
 }
 if(isset($_GET['cadastrar'])) {
-   $cadastrar = BASEURL . 'classes/' .$_GET['cadastrar'] .'.php';
-    $atualizar = BASEURL . 'classes/' .$_GET['atualizar'] .'.php';
-    $modo = BASEURL . 'classes/' .$_GET['modo'] .'.php';
+   $cadastrar = BASEURL . 'administrativo/condominios/' .$_GET['cadastrar'] .'.php';
+    $atualizar = BASEURL . 'administrativo/condominios/' .$_GET['atualizar'] .'.php';
+    $modo = BASEURL . 'administrativo/condominios/' .$_GET['modo'] .'.php';
 
 echo '
 

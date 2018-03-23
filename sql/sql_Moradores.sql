@@ -1,4 +1,4 @@
-create table moradores(
+create table if not exists moradores(
 	id int(11) not null AUTO_INCREMENT,
     nome varchar(255) not null,
     status int(1) not null,

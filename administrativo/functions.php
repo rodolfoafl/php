@@ -1,28 +1,28 @@
 <?php
-	require_once('../config.php');
+	require_once('../../config.php');
 	require_once(DBAPI);
 
-	$condominios = null;
-	$condominio = null;
+	//$condominios = null;
+	//$condominio = null;
 
-	function index(){
+	/*function listarTodos(){
 		global $condominios;
 		$condominios = find_all('condominios');
-	}
+	}*/
 
-	/*GENÉRICO PARA QUALQUER TABELA
-	function listarGenerico($tabela){
+	//GENÉRICO PARA QUALQUER TABELA
+	function listar($tabela){
 		return find_all($tabela);
 	}
-	*/
+	
 
-	function adicionar(){
+	/*function adicionar(){
 		if(!empty($_POST['condominio'])){
 			$condominio = $_POST['condominio'];
 			salvar('condominios', $condominio);
 			header('location: index.php?id=4343');
 		}
-	}
+	}*/
 
 	
 	function adicionarGenerico($classe, $tabela){
@@ -34,7 +34,7 @@
 	}
 	
 
-	function editar(){
+	/*function editar(){
 		if(isset($_GET['id'])){
 			$id = $_GET['id'];
 
@@ -50,9 +50,9 @@
 		}else{
 			header('location: index.php');
 		}
-	}
+	}*/
 
-	/*
+	
 	function editarGenerico($classe, $tabela){
 		if(isset($_GET['id'])){
 			$id = $_GET['id'];
@@ -70,7 +70,6 @@
 			header('location: index.php');
 		}
 	}
-	*/
 
 	function detalhes($id = null){
 		global $condominio;
@@ -84,21 +83,21 @@
 	}
 	*/
 
-	function deletar($id = null){
+	/*function deletar($id = null){
 		global $condominio;
 		$condominio = remover('condominios', $id);
 
 		header('location: index.php');
-	}
+	}*/
 
-	/*
+	
 	 function deletarGenerico($id = null, $tabela){
 		global $obj;
 		$obj = remover($tabela, $id);
 
 		header('location: index.php');
 	}
-	 * */
+
 	
 	function dropDown($tabela){
 	    $lista = constroiDropDown($tabela);

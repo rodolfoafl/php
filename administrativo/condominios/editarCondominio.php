@@ -1,6 +1,8 @@
 <?php 
-  require_once('functions.php'); 
-  editar();
+    require_once('../functions.php');
+    $id = $_GET['id'];
+    $condominio = find('condominios', $id);
+    editarGenerico('condominio', 'condominios');
 ?>
 
 <?php 

@@ -1,4 +1,4 @@
-create table funcionarios(
+create table if not exists funcionarios(
 	id int(11) not null AUTO_INCREMENT,
     nome varchar(255) not null,
     status int(1) not null,
@@ -7,5 +7,5 @@ create table funcionarios(
     id_condominio int,
     
     PRIMARY KEY(id),
-    FOREIGN KEY (id_condominio) REFERENCES condominios(id),
+    FOREIGN KEY (id_condominio) REFERENCES condominios(id)
 );

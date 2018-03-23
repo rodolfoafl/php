@@ -1,4 +1,4 @@
-create table servicos(
+create table if not exists servicos(
 	id int(11) not null AUTO_INCREMENT,
     situacao varchar(255) not null,
     valor decimal(11, 2) not null,

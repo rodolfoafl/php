@@ -15,7 +15,6 @@ $db = open_database();
   <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exemplo@email.com" name="usuario">
-    <small id="emailHelp" class="form-text text-muted">Nós nunca compartilharemos seu email com ninguém.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Senha</label>
@@ -29,7 +28,7 @@ $db = open_database();
 
 	<div class="alert alert-danger" role="alert">			
 		<p>
-			<strong>ERRO:</strong> Não foi possível Conectar ao Banco de Dados!
+			<strong>ERRO:</strong> NÃ£o foi possÃ­vel conectar ao banco de dados!
 		</p>		
 	</div>	
 

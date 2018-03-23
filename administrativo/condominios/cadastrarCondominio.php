@@ -1,30 +1,30 @@
-<?php
-require_once('functions.php');
-adicionarGenerico('apartamento', 'apartamentos');
+<?php 
+require_once('../functions.php'); 
 
+    adicionarGenerico('condominio', 'condominios');
 ?>
 
 <?php 
-$_GET['titulo'] = 'Novo Apartamento';
+$_GET['titulo'] = 'Novo CondomÃ­nio';
 include(HEADER_TEMPLATE); ?>
 
-<form action="cadastrarApartamento.php" method="post">
+<form action="cadastrarCondominio.php" method="post">
   <!-- area de campos do form -->
   
   <div class="row ">
     <div class="form-group col-md-4">
-      <label for="name">Número: </label>
-      <input type="number" class="form-control" name="apartamento['numero']">
+      <label for="name">Nome: </label>
+      <input type="text" class="form-control" name="condominio['nome']" required>
     </div>
 
-    <div class="form-group col-md-4">
-      <label for="campo2">Condomínio: </label>
-		<?php $select = dropDown('condominios');?>
+    <div class="form-group col-md-6">
+      <label for="campo2">EndereÃ§o: </label>
+      <input type="text" class="form-control" name="condominio['endereco']" required>
     </div>
 
     <div class="form-group col-md-2">
       <label for="campo2">Status: </label>
-      <select class="custom-select" name="apartamento['status']">
+      <select class="custom-select" name="condominio['status']">
         <option value="0">Desativado</option>
         <option value="1">Ativado</option>
       </select>

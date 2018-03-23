@@ -1,4 +1,4 @@
-create table apartamentos(
+create table if not exists apartamentos(
 	id int(11) not null AUTO_INCREMENT,
     numero int(11) not null,
     status int(1) not null,

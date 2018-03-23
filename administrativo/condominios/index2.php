@@ -1,6 +1,6 @@
 <?php
-    require_once('functions.php');
-    index();
+    require_once('../functions.php');
+    $condominios = listar('condominios');
 ?>
 <?php 
 	$_GET['titulo'] = 'Condominios / <small>Cards</small>';
@@ -59,5 +59,5 @@
 <?php endif; ?>
 
 <?php
-include('modal.php');
+include('../modal.php');
 include(FOOTER_TEMPLATE); ?>
