@@ -121,7 +121,7 @@
 		close_database($db);
 	}
 
-	function constroiDropDown($tabela){
+	function constroiDropDown($tabela, $id_condominio = null){
 	    $db = open_database();
 	    
 	    $sql = "SELECT id, nome FROM $tabela";
@@ -133,7 +133,13 @@
 	        $select.= '<option value="" selected disabled hidden>Selecione um condomínio</option>';
 	        
 	        while($rs=$result->fetch_assoc()){
-	            $select.='<option value="'.$rs['id'].'">'.$rs['nome'].'</option>';
+	            //&& ($rs['id'] == $idCondominio)
+	            //selected="selected"
+	            if(($id_condominio) && ($rs['id'] == $id_condominio)){
+	                $select.='<option value="'.$rs['id'].'" selected="selected">'.$rs['nome'].'</option>';   
+	            }else{
+	               $select.='<option value="'.$rs['id'].'">'.$rs['nome'].'</option>';
+	            } 
 	        }
 	    }
 	    $select.='</select>';
