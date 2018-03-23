@@ -71,17 +71,17 @@
 		}
 	}
 
-	function detalhes($id = null){
+	/*function detalhes($id = null){
 		global $condominio;
 		$condominio = find('condominios', $id);
-	}
+	}*/
 
-	/*
+	
 	function detalhesGenerico($id = null, $tabela){
-		global $obj;
 		$obj = find($tabela, $id);
+		return $obj;
 	}
-	*/
+	
 
 	/*function deletar($id = null){
 		global $condominio;

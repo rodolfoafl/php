@@ -1,5 +1,5 @@
 <?php
-require_once('functions.php');
+require_once('../functions.php');
 adicionarGenerico('apartamento', 'apartamentos');
 
 ?>
@@ -14,7 +14,7 @@ include(HEADER_TEMPLATE); ?>
   <div class="row ">
     <div class="form-group col-md-4">
       <label for="name">Número </label>
-      <input type="number" class="form-control" name="apartamento['numero']">
+      <input type="number" class="form-control" name="apartamento['numero']" required>
     </div>
 
     <div class="form-group col-md-4">

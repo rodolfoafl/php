@@ -130,7 +130,7 @@
 	    
 	    if($result->num_rows > 0){
 	        $select= '<select name="apartamento[\'id_condominio\']" class="form-control">';
-	        $select.= '<option value="" selected disabled hidden>Selecione um condom�nio</option>';
+	        $select.= '<option value="" selected disabled hidden>Selecione um condomínio</option>';
 	        
 	        while($rs=$result->fetch_assoc()){
 	            $select.='<option value="'.$rs['id'].'">'.$rs['nome'].'</option>';

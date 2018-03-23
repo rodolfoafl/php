@@ -1,6 +1,6 @@
 <?php 
 	require_once('../functions.php'); 
-	detalhes($_GET['id']);
+	$condominio = detalhesGenerico($_GET['id'], 'condominios');
 ?>
 
 <?php 

@@ -52,7 +52,8 @@ echo '
     </div>
     ';
 }
-if(isset($_GET['cadastrar'])) {
+
+if(isset($_GET['cadastrar']) && strcmp($_GET['cadastrar'], 'cadastrarCondominio') == 0) {
    $cadastrar = BASEURL . 'administrativo/condominios/' .$_GET['cadastrar'] .'.php';
     $atualizar = BASEURL . 'administrativo/condominios/' .$_GET['atualizar'] .'.php';
     $modo = BASEURL . 'administrativo/condominios/' .$_GET['modo'] .'.php';
@@ -61,6 +62,22 @@ echo '
 
     <div class="col-sm-6 text-right h2">
         <a class="btn btn-info my-2 my-sm-0" href="' .$cadastrar .'"><i class="fa fa-plus"></i> Novo Condomínio</a>
+        <a class="btn btn-info my-2 my-sm-0" href="' .$atualizar .'" ><i class="fa fa-refresh"></i> Atualizar</a>
+        <a class="btn btn-info my-2 my-sm-0" href="' .$modo .'" ><i class="fa fa-eye"></i> Cards</a>
+      </div>
+  </div>
+   ';
+}
+
+if((isset($_GET['cadastrar']) && strcmp($_GET['cadastrar'], 'cadastrarApartamento') == 0)){
+    $cadastrar = BASEURL . 'administrativo/apartamentos/' .$_GET['cadastrar'] .'.php';
+    $atualizar = BASEURL . 'administrativo/apartamentos/' .$_GET['atualizar'] .'.php';
+    $modo = BASEURL . 'administrativo/apartamentos/' .$_GET['modo'] .'.php';
+    
+    echo '
+      
+    <div class="col-sm-6 text-right h2">
+        <a class="btn btn-info my-2 my-sm-0" href="' .$cadastrar .'"><i class="fa fa-plus"></i> Novo Apartamento</a>
         <a class="btn btn-info my-2 my-sm-0" href="' .$atualizar .'" ><i class="fa fa-refresh"></i> Atualizar</a>
         <a class="btn btn-info my-2 my-sm-0" href="' .$modo .'" ><i class="fa fa-eye"></i> Cards</a>
       </div>
