@@ -18,4 +18,3 @@
   </div>
 </div> <!-- /.modal -->
 
-<script src="<?php echo BASEURL;?>js/main.js"></script>

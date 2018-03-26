@@ -84,6 +84,22 @@ if((isset($_GET['cadastrar']) && strcmp($_GET['cadastrar'], 'cadastrarApartament
   </div>
    ';
 }
+
+if((isset($_GET['cadastrar']) && strcmp($_GET['cadastrar'], 'cadastrarFuncionario') == 0)){
+    $cadastrar = BASEURL . 'administrativo/funcionarios/' .$_GET['cadastrar'] .'.php';
+    $atualizar = BASEURL . 'administrativo/funcionarios/' .$_GET['atualizar'] .'.php';
+    $modo = BASEURL . 'administrativo/funcionarios/' .$_GET['modo'] .'.php';
+    
+    echo '
+            
+    <div class="col-sm-6 text-right h2">
+        <a class="btn btn-info my-2 my-sm-0" href="' .$cadastrar .'"><i class="fa fa-plus"></i> Novo Funcionário</a>
+        <a class="btn btn-info my-2 my-sm-0" href="' .$atualizar .'" ><i class="fa fa-refresh"></i> Atualizar</a>
+        <a class="btn btn-info my-2 my-sm-0" href="' .$modo .'" ><i class="fa fa-eye"></i> Cards</a>
+      </div>
+  </div>
+   ';
+}
  ?>
 </header>
 </body>

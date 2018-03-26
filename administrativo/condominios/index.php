@@ -53,7 +53,8 @@ require_once('../../administrativo/functions.php');
 		<td class="actions text-right">
 			<a href="detalhesCondominio.php?id=<?php echo $condominio['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
 			<a href="editarCondominio.php?id=<?php echo $condominio['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $condominio['id']; ?>">
+			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $condominio['id']; ?>"
+			data-classe="condominio">
 				<i class="fa fa-trash"></i> Excluir
 			</a>
 		</td>

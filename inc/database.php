@@ -91,16 +91,16 @@
 
 		try {	    
 			$db->query($sql);		    
-			$_SESSION['message'] = 'Condomínio atualizado com sucesso.';	    
+			$_SESSION['message'] = 'Item atualizado com sucesso.';	    
 			$_SESSION['type'] = 'success';		  
 		} catch (Exception $e) { 		    
-			$_SESSION['message'] = 'Nao foi possivel atualizar o condomínio.';	    
+			$_SESSION['message'] = 'Nao foi possivel atualizar o item.';	    
 			$_SESSION['type'] = 'danger';	  
 		} 
 		close_database($db);
 	}
 
-	function remover($table = null, $id = null){
+	function remover($id = null, $table){
 		$db = open_database();
 
 		try{
@@ -108,20 +108,20 @@
 				$sql = "DELETE FROM $table WHERE id= $id";
 				
 				if($result = $db->query($sql)){
-					$_SESSION['message'] = "Condomínio removido com sucesso.";
+					$_SESSION['message'] = "Item removido com sucesso.";
 					$_SESSION['type'] = "success";
 				}
 			}
 
 		}catch(Exception $e){
-			$_SESSION['message'] = "Não foi possívl remover o condomínio.";
+			$_SESSION['message'] = "Não foi possívl remover o item.";
 			$_SESSION['type'] = "danger";
 		}
 
 		close_database($db);
 	}
 
-	function constroiDropDown($tabela, $id_condominio = null){
+	function constroiDropDown($tabela, $classe, $id_condominio = null){
 	    $db = open_database();
 	    
 	    $sql = "SELECT id, nome FROM $tabela";
@@ -129,12 +129,10 @@
 	    $result = $db->query($sql);	
 	    
 	    if($result->num_rows > 0){
-	        $select= '<select name="apartamento[\'id_condominio\']" class="form-control">';
+	        $select= '<select name="'.$classe.'[\'id_condominio\']" class="form-control">';
 	        $select.= '<option value="" selected disabled hidden>Selecione um condomínio</option>';
 	        
 	        while($rs=$result->fetch_assoc()){
-	            //&& ($rs['id'] == $idCondominio)
-	            //selected="selected"
 	            if(($id_condominio) && ($rs['id'] == $id_condominio)){
 	                $select.='<option value="'.$rs['id'].'" selected="selected">'.$rs['nome'].'</option>';   
 	            }else{

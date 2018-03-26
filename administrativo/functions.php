@@ -93,17 +93,17 @@
 	
 	 function deletarGenerico($id = null, $tabela){
 		global $obj;
-		$obj = remover($tabela, $id);
+		$obj = remover($id, $tabela);
 
 		header('location: index.php');
 	}
 
 	
-	function dropDown($tabela, $id_condominio = null){
+	function dropDown($tabela, $classe, $id_condominio = null){
 	    if($id_condominio){
-	        $lista = constroiDropDown($tabela, $id_condominio);
+	        $lista = constroiDropDown($tabela, $classe, $id_condominio);
 	    }else{
-	       $lista = constroiDropDown($tabela);
+	        $lista = constroiDropDown($tabela, $classe);
 	    }
 	    return $lista;
 	}

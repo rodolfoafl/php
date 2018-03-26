@@ -1,10 +1,10 @@
 <?php
 require_once('../../administrativo/functions.php');
-$apartamentos = listar('apartamentos');
+$funcionarios = listar('funcionarios');
 ?>
 <?php 
-	$_GET['titulo'] = 'Apartamentos / <small>Lista</small>';
-    $_GET['cadastrar'] = 'cadastrarApartamento';
+	$_GET['titulo'] = 'Funcionários / <small>Lista</small>';
+    $_GET['cadastrar'] = 'cadastrarFuncionario';
     $_GET['atualizar'] = 'index';
     $_GET['modo'] = 'index2';
  ?>
@@ -32,34 +32,38 @@ $apartamentos = listar('apartamentos');
 <thead class="bg-dark">
 	<tr>
 		<th>ID</th>
-		<th>Número</th>
+		<th>Nome</th>
+		<th>CPF</th>
+		<th>Função</th>
 		<th>Status</th>
 		<th>Condomínio</th>
 		<th></th>
 	</tr>
 </thead>
 <tbody>
-<?php if ($apartamentos) : ?>
-<?php foreach ($apartamentos as $apartamento) : ?>
+<?php if ($funcionarios) : ?>
+<?php foreach ($funcionarios as $funcionario) : ?>
 	<tr>
-		<td><?php echo $apartamento['id']; ?></td>
-		<td><?php echo $apartamento['numero']; ?></td>
-		<td><?php if($apartamento['status']){
+		<td><?php echo $funcionario['id']; ?></td>
+		<td><?php echo $funcionario['nome']; ?></td>
+		<td><?php echo $funcionario['cpf']; ?></td>
+		<td><?php echo $funcionario['funcao']; ?></td>
+		<td><?php if($funcionario['status']){
 			echo 'Ativado';
 		}else{
 			echo 'Desativado';
 		}?></td>
 		<td><?php 
 		
-		$condominio = detalhesGenerico($apartamento['id_condominio'], 'condominios');
+		$condominio = detalhesGenerico($funcionario['id_condominio'], 'condominios');
 		echo $condominio['nome'];
 		
 		?></td>
 		<td class="actions text-right">
-			<a href="detalhesApartamento.php?id=<?php echo $apartamento['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="editarApartamento.php?id=<?php echo $apartamento['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $apartamento['id']; ?>"
-			data-classe="apartamento">
+			<a href="detalhesFuncionario.php?id=<?php echo $funcionario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+			<a href="editarFuncionario.php?id=<?php echo $funcionario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $funcionario['id']; ?>"
+			data-classe="funcionario">
 				<i class="fa fa-trash"></i> Excluir
 			</a>
 		</td>
