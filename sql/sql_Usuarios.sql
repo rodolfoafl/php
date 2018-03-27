@@ -5,5 +5,5 @@ create table if not exists usuarios(
     status int(1) not null,
     nivel int(2) not null,
     
-    PRIMARY KEY(id)  
+    PRIMARY KEY(id)
 );

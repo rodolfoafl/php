@@ -121,23 +121,36 @@
 		close_database($db);
 	}
 
-	function constroiDropDown($tabela, $classe, $id_condominio = null){
+	function constroiDropDown($tabela, $classe, $id_tabela = null){
 	    $db = open_database();
 	    
-	    $sql = "SELECT id, nome FROM $tabela";
+	    $sql = null;
+	    
+	    $atributo = null;
+	    
+	    if($tabela == "condominios"){
+	        $atributo = "'id_condominio'";
+	        $sql = "SELECT id, nome FROM $tabela";
+	        $campo = "nome";
+	    }
+	    if($tabela == "apartamentos"){
+	        $atributo = "'id_apartamento'";
+	        $sql = "SELECT id, numero FROM $tabela";
+	        $campo = "numero";
+	    }
 	    
 	    $result = $db->query($sql);	
 	    
 	    if($result->num_rows > 0){
-	        $select= '<select name="'.$classe.'[\'id_condominio\']" class="form-control">';
-	        $select.= '<option value="" selected disabled hidden>Selecione um condomínio</option>';
+	        $select = '<select onchange="getId(this)" name="'.$classe.'['.$atributo.']" class="form-control">';
+	        $select.= '<option value="" selected disabled hidden>Selecione uma opção</option>';
 	        
 	        while($rs=$result->fetch_assoc()){
-	            if(($id_condominio) && ($rs['id'] == $id_condominio)){
-	                $select.='<option value="'.$rs['id'].'" selected="selected">'.$rs['nome'].'</option>';   
+	            if(($id_tabela) && ($rs['id'] == $id_tabela)){
+	                $select.='<option value="'.$rs['id'].'" selected="selected">'.$rs[$campo].'</option>';   
 	            }else{
-	               $select.='<option value="'.$rs['id'].'">'.$rs['nome'].'</option>';
-	            } 
+	               $select.='<option value="'.$rs['id'].'">'.$rs[$campo].'</option>';
+	            }
 	        }
 	    }
 	    $select.='</select>';

@@ -99,9 +99,9 @@
 	}
 
 	
-	function dropDown($tabela, $classe, $id_condominio = null){
-	    if($id_condominio){
-	        $lista = constroiDropDown($tabela, $classe, $id_condominio);
+	function dropDown($tabela, $classe, $id_tabela = null){
+	    if($id_tabela){
+	        $lista = constroiDropDown($tabela, $classe, $id_tabela);
 	    }else{
 	        $lista = constroiDropDown($tabela, $classe);
 	    }
