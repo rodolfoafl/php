@@ -22,6 +22,10 @@ $('#delete-modal').on('show.bs.modal', function (event) {
   		modal.find('.modal-title').text('Excluir Condomínio #' + id);
   		modal.find('#confirm').attr('href', 'deletarCondominio.php?id=' + id);
   		break;
+  	case "morador":
+  		modal.find('.modal-title').text('Excluir Morador #' + id);
+  		modal.find('#confirm').attr('href', 'deletarMorador.php?id=' + id);
+  		break;
   }
   
 })

@@ -28,8 +28,10 @@
 	function adicionarGenerico($classe, $tabela){
 		if(!empty($_POST[$classe])){
 			$obj = $_POST[$classe];
-			salvar($tabela, $obj);
-			header('location: index.php');
+			
+			//print_r($obj);
+ 			salvar($tabela, $obj);
+            header('location: index.php');
 		}
 	}
 	
@@ -98,12 +100,20 @@
 		header('location: index.php');
 	}
 
-	
-	function dropDown($tabela, $classe, $id_tabela = null){
-	    if($id_tabela){
-	        $lista = constroiDropDown($tabela, $classe, $id_tabela);
+	function dropDown($tabela, $classe, $id_selecionado = null){
+	    if($id_selecionado){
+	        $lista = constroiDropDown($tabela, $classe, $id_selecionado);
 	    }else{
 	        $lista = constroiDropDown($tabela, $classe);
+	    }
+	    return $lista;
+	}
+	
+	function dropDownApt($tabela, $id_condominio ,$classe, $id_selecionado = null){
+	    if($id_selecionado){
+	        $lista = constroiDropDownApt($tabela, $id_condominio, $classe, $id_selecionado);
+	    }else{
+	        $lista = constroiDropDownApt($tabela, $id_condominio, $classe);
 	    }
 	    return $lista;
 	}

@@ -1,10 +1,10 @@
 <?php
 require_once('../functions.php');
-$apartamento = detalhesGenerico($_GET['id'], 'apartamentos');
+$morador = detalhesGenerico($_GET['id'], 'moradores');
 ?>
 
 <?php 
-$_GET['titulo'] = 'Detalhes Apartamento / ' . '<small>'.$apartamento['numero'].'</small>';
+$_GET['titulo'] = 'Detalhes Morador / ' . '<small>'.$morador['nome'].'</small>';
 include(HEADER_TEMPLATE); ?>
 
 
@@ -14,21 +14,24 @@ include(HEADER_TEMPLATE); ?>
 
 <dl class="row">
 	<dt class="col-md-2">ID: </dt>
-	<dd class="col-md-10"><?php echo $apartamento['id']; ?></dd>
+	<dd class="col-md-10"><?php echo $morador['id']; ?></dd>
 
-	<dt class="col-md-2">Número: </dt>
-	<dd class="col-md-10"><?php echo $apartamento['numero']; ?></dd>
-
-	<dt class="col-md-2">Condomínio: </dt>
+	<dt class="col-md-2">Nome: </dt>
+	<dd class="col-md-10"><?php echo $morador['nome']; ?></dd>
+	
+	<dt class="col-md-2">CPF: </dt>
+	<dd class="col-md-10"><?php echo $morador['cpf']; ?></dd>
+	
+	<dt class="col-md-2">Apartamento: </dt>
 	<dd class="col-md-10"><?php 
 	
-	$condominio = detalhesGenerico($apartamento['id_condominio'], 'condominios');
-	echo $condominio['nome'];
+	$apartamento = detalhesGenerico($morador['id_apartamento'], 'apartamentos');
+	echo $apartamento['numero'];
 	
 	?></dd>
 
 	<dt class="col-md-2">Status: </dt>
-	<dd class="col-md-10"><?php if($apartamento['status']) {
+	<dd class="col-md-10"><?php if($morador['status']) {
 		echo "Ativado";
 	} else {
 		echo "Desativado";

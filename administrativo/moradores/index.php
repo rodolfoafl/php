@@ -7,6 +7,9 @@ $moradores = listar('moradores');
     $_GET['cadastrar'] = 'cadastrarMorador';
     $_GET['atualizar'] = 'index';
     $_GET['modo'] = 'index2';
+    
+    
+
  ?>
 <?php include(HEADER_TEMPLATE); ?>
 

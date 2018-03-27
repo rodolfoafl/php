@@ -1,33 +1,45 @@
 <?php
 require_once('../functions.php');
 $id = $_GET['id'];
-$apartamento = find('apartamentos', $id);
-editarGenerico('apartamento', 'apartamentos');
+$morador = find('moradores', $id);
+
+$apartamento = find('apartamentos', $morador['id_apartamento']);
+editarGenerico('morador', 'moradores');
 ?>
 
 <?php 
-$_GET['titulo'] = 'Editar Apartamento / ' . '<small>'.$apartamento['numero'].'</small>';
+$_GET['titulo'] = 'Editar Morador / ' . '<small>'.$morador['nome'].'</small>';
 include(HEADER_TEMPLATE); ?>
 
 
-<form action="editarApartamento.php?id=<?php echo $apartamento['id']; ?>" method="post">
+<form action="editarMorador.php?id=<?php echo $morador['id']; ?>" method="post">
   <hr />
   <div class="row">
     <div class="form-group col-md-4">
-      <label for="name">Número: </label>
-      <input type="number" class="form-control" name="apartamento['numero']" value="<?php echo $apartamento['numero']; ?>">
+      <label for="name">Nome: </label>
+      <input type="text" class="form-control" name="morador['nome']" value="<?php echo $morador['nome']; ?>">
+    </div>
+    
+    <div class="form-group col-md-4">
+      <label for="cpf">CPF: </label>
+      <input type="text" class="form-control" name="morador['cpf']" value="<?php echo $morador['cpf']; ?>">
+    </div>
+    
+    <div class="form-group col-md-4">
+      <label for="condominio">Condomínio: </label>
+		<?php echo $select = dropDown('apartamentos', 'morador', $morador['id_apartamento']);?>
     </div>
 
     <div class="form-group col-md-4">
-      <label for="campo2">Condomínio: </label>
-		<?php echo $select = dropDown('condominios', $apartamento['id_condominio']);?>
+      <label for="apartamento">Apartamento: </label>
+		<?php echo $select = dropDown('apartamentos', 'morador', $morador['id_apartamento']);?>
     </div>
 
     <div class="form-group col-md-2">
-      <label for="campo2">Status: </label>
-      <select class="custom-select" name="apartamento['status']">
+      <label for="status">Status: </label>
+      <select class="custom-select" name="morador['status']">
         <option value="0" >Desativado</option>
-        <option value="1" <?php  if($apartamento['status']) {
+        <option value="1" <?php  if($morador['status']) {
           echo 'selected';
         } ?> >Ativado</option>
       </select>

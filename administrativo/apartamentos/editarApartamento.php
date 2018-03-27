@@ -20,7 +20,7 @@ include(HEADER_TEMPLATE); ?>
 
     <div class="form-group col-md-4">
       <label for="campo2">Condomínio: </label>
-		<?php echo $select = dropDown('condominios', $apartamento['id_condominio']);?>
+		<?php echo $select = dropDown('condominios', 'apartamento', $apartamento['id_condominio']);?>
     </div>
 
     <div class="form-group col-md-2">

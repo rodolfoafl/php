@@ -121,7 +121,7 @@
 		close_database($db);
 	}
 
-	function constroiDropDown($tabela, $classe, $id_tabela = null){
+	function constroiDropDown($tabela, $classe, $id_selecionado = null){
 	    $db = open_database();
 	    
 	    $sql = null;
@@ -142,11 +142,14 @@
 	    $result = $db->query($sql);	
 	    
 	    if($result->num_rows > 0){
-	        $select = '<select onchange="getId(this)" name="'.$classe.'['.$atributo.']" class="form-control">';
+	        if($classe == 'morador'){
+	           $select = '<select name="cdm" class="form-control" onChange="fetch_select(this.value);">';
+	        }else{
+	           $select = '<select name="'.$classe.'['.$atributo.']" class="form-control" onChange="fetch_select(this.value);">';
+	        }
 	        $select.= '<option value="" selected disabled hidden>Selecione uma opção</option>';
-	        
 	        while($rs=$result->fetch_assoc()){
-	            if(($id_tabela) && ($rs['id'] == $id_tabela)){
+	            if(($id_selecionado) && ($rs['id'] == $id_selecionado)){
 	                $select.='<option value="'.$rs['id'].'" selected="selected">'.$rs[$campo].'</option>';   
 	            }else{
 	               $select.='<option value="'.$rs['id'].'">'.$rs[$campo].'</option>';
@@ -155,6 +158,37 @@
 	    }
 	    $select.='</select>';
 	    return $select;    
+	}
+	
+	function constroiDropDownApt($tabela, $id_condominio, $classe, $id_tabela = null){
+	    $db = open_database();
+	    
+
+	
+        $atributo = "'id_apartamento'";
+        $sql = "SELECT id, numero FROM $tabela where id_condominio = $id_condominio";
+	    $campo = "numero";
+	
+	    
+	    $result = $db->query($sql);
+	    
+	    if($result->num_rows > 0){
+	        $select = '<select name="'.$classe.'['.$atributo.']" class="form-control">';
+	        $select.= '<option value="" selected disabled hidden>Selecione uma opção</option>';
+	        
+	        while($rs=$result->fetch_assoc()){
+	            if(($id_tabela) && ($rs['id'] == $id_tabela)){
+	                $select.='<option value="'.$rs['id'].'" selected="selected">'.$rs[$campo].'</option>';
+	            }else{
+	                $select.='<option value="'.$rs['id'].'">'.$rs[$campo].'</option>';
+	            }
+	        }
+	    }else{
+	        $select = '<select name="'.$classe.'['.$atributo.']" class="form-control">';
+	        $select.= '<option value="" selected disabled hidden>Nenhum apartamento cadastrado!</option>';
+	    }
+	    $select.='</select>';
+	    return $select;
 	}
 	
 

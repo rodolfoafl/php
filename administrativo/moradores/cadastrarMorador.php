@@ -2,6 +2,7 @@
 require_once('../functions.php');
 adicionarGenerico('morador', 'moradores');
 
+
 ?>
 
 <?php 
@@ -12,47 +13,50 @@ include(HEADER_TEMPLATE); ?>
   <!-- area de campos do form -->
   
   <div class="row ">
+
     <div class="form-group col-md-4">
       <label for="name">Nome: </label>
-      <input type="number" class="form-control" name="morador['nome']" required>
+      <input type="text" class="form-control" name="morador['nome']" required>
     </div>
     
     <div class="form-group col-md-4">
       <label for="cpf">CPF: </label>
-      <input type="text" class="form-control" name="morador['cpf']" required>
+      <input type="text" class="form-control" name="morador['cpf']" required id="cpf">
     </div>
 
     <div class="form-group col-md-4">
       <label for="condominio">Condomínio</label>
 		<?php echo $select = dropDown('condominios', 'morador');?>
     </div>
-    
-    <div class="form-group col-md-4" id="apt" style="display: none;">
-      <label for="apartamento">Apartamento</label>
-      <?php $abc = "<script>id</script>";
-    echo $abc;?>
-		
+    	
+    <div class="form-group col-md-4">	
+    	<label for="apartamentos">Apartamento</label>
+    	<div class="form-group col-md-12" id="apartamentos">
+ 		</div>
+ 	</div>
+
+    <div class="form-group col-md-2">
+      <label for="campo2">Status: </label>
+      <select class="custom-select" name="morador['status']">
+        <option value="0">Desativado</option>
+        <option value="1">Ativado</option>
+      </select>
     </div>
     
-   
-    
     <div class="form-group col-md-4">
+      <input type="text" class="form-control" name="morador['id_usuario']" value="1" hidden>
+    </div>
+  </div>
+  
+  <div class="row">
+  	    <div class="form-group col-md-4">
       <label for="usuario">Usuário: </label>
-      <input type="text" class="form-control" name="usuario['login']" required disabled>
+      <input type="text" class="form-control" name="usuario['login']" required disabled value="testeUsuario">
     </div>
     
      <div class="form-group col-md-4">
       <label for="senha">Senha: </label>
-      <input type="text" class="form-control" name="usuario['senha']" required disabled>
-    </div>
-    
-
-    <div class="form-group col-md-2">
-      <label for="campo2">Status: </label>
-      <select class="custom-select" name="apartamento['status']">
-        <option value="0">Desativado</option>
-        <option value="1">Ativado</option>
-      </select>
+      <input type="text" class="form-control" name="usuario['senha']" required disabled value="testeSenha">
     </div>
   </div>
 
@@ -68,18 +72,22 @@ include(HEADER_TEMPLATE); ?>
 
 </form>
 
-<script type = "text/javascript">
-
-var id;
-function getId(s){
- id = s[s.selectedIndex].value;
- var div = document.getElementById("apt");
- div.style.display = "";
- 
- 
- //alert(id);
-
+<script type="text/javascript">
+function fetch_select(val){
+         $.ajax({
+             type: 'post',
+             url: 'fetch_data.php',
+             data: {
+              id_condominio: val
+             },
+             success: function (response) {
+              document.getElementById("apartamentos").innerHTML=response; 
+             }
+         });
 }
 </script>
 
 <?php include(FOOTER_TEMPLATE); ?>
+<script>
+			$('#cpf').mask('000.000.000-00');
+</script>
