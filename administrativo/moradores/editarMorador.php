@@ -27,13 +27,15 @@ include(HEADER_TEMPLATE); ?>
     
     <div class="form-group col-md-4">
       <label for="condominio">Condomínio: </label>
-		<?php echo $select = dropDown('apartamentos', 'morador', $morador['id_apartamento']);?>
+		<?php echo $select = dropDown('condominios', 'morador', $apartamento['id_condominio']);?>
     </div>
 
-    <div class="form-group col-md-4">
-      <label for="apartamento">Apartamento: </label>
-		<?php echo $select = dropDown('apartamentos', 'morador', $morador['id_apartamento']);?>
-    </div>
+	<div class="form-group col-md-4">	
+    <label for="apartamentos">Apartamento</label>
+    	<div class="form-group col-md-12" id="apartamentos">
+    	<?php echo $select = dropDownApt('apartamentos', $apartamento['id_condominio'], 'morador', $morador['id_apartamento']);?>
+ 		</div>
+ 	</div>
 
     <div class="form-group col-md-2">
       <label for="status">Status: </label>
@@ -54,4 +56,23 @@ include(HEADER_TEMPLATE); ?>
   </div>
 </form>
 
+<script type="text/javascript">
+function fetch_select(val){
+         $.ajax({
+             type: 'post',
+             url: 'fetch_data.php',
+             data: {
+              id_condominio: val
+             },
+             success: function (response) {
+              document.getElementById("apartamentos").innerHTML=response; 
+             }
+         });
+}
+</script>
+
 <?php include(FOOTER_TEMPLATE); ?>
+
+<script>
+			$('#cpf').mask('000.000.000-00');
+</script>

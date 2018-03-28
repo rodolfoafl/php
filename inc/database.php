@@ -143,9 +143,9 @@
 	    
 	    if($result->num_rows > 0){
 	        if($classe == 'morador'){
-	           $select = '<select name="cdm" class="form-control" onChange="fetch_select(this.value);">';
+	           $select = '<select required name="cdm" class="form-control" onChange="fetch_select(this.value);">';
 	        }else{
-	           $select = '<select name="'.$classe.'['.$atributo.']" class="form-control" onChange="fetch_select(this.value);">';
+	           $select = '<select required name="'.$classe.'['.$atributo.']" class="form-control" onChange="fetch_select(this.value);">';
 	        }
 	        $select.= '<option value="" selected disabled hidden>Selecione uma opção</option>';
 	        while($rs=$result->fetch_assoc()){
@@ -173,7 +173,7 @@
 	    $result = $db->query($sql);
 	    
 	    if($result->num_rows > 0){
-	        $select = '<select name="'.$classe.'['.$atributo.']" class="form-control">';
+	        $select = '<select required name="'.$classe.'['.$atributo.']" class="form-control">';
 	        $select.= '<option value="" selected disabled hidden>Selecione uma opção</option>';
 	        
 	        while($rs=$result->fetch_assoc()){
@@ -184,7 +184,7 @@
 	            }
 	        }
 	    }else{
-	        $select = '<select name="'.$classe.'['.$atributo.']" class="form-control">';
+	        $select = '<select required name="'.$classe.'['.$atributo.']" class="form-control">';
 	        $select.= '<option value="" selected disabled hidden>Nenhum apartamento cadastrado!</option>';
 	    }
 	    $select.='</select>';
