@@ -27,7 +27,11 @@ $moradores = listar('moradores');
 	<?php clear_messages(); ?>
 <?php endif; ?>
 
-
+<h2>Moradores</h2>
+<div class="col-sm-12 text-right h2">
+        <a class="btn btn-info my-2 my-sm-0" href="cadastrarMorador.php"><i class="fa fa-plus"></i> Novo Morador</a>
+        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fa fa-refresh"></i> Atualizar</a>
+</div>
 
 
 

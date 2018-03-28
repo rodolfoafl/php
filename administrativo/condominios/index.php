@@ -1,6 +1,6 @@
 <?php
 require_once('../../administrativo/functions.php');
-    $condominios = listar('condominios');
+$condominios = listar('condominios');
 ?>
 <?php 
 	$_GET['titulo'] = 'Condominios / <small>Lista</small>';
@@ -24,7 +24,11 @@ require_once('../../administrativo/functions.php');
 	<?php clear_messages(); ?>
 <?php endif; ?>
 
-
+<h2>Condominios</h2>
+<div class="col-sm-12 text-right h2">
+        <a class="btn btn-info my-2 my-sm-0" href="cadastrarCondominio.php"><i class="fa fa-plus"></i> Novo Condominio</a>
+        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fa fa-refresh"></i> Atualizar</a>
+</div>
 
 
 
@@ -33,7 +37,7 @@ require_once('../../administrativo/functions.php');
 	<tr>
 		<th>ID</th>
 		<th width="30%">Nome</th>
-		<th>EndereÃ§o</th>
+		<th>Endereço</th>
 		<th>Status</th>
 		<th></th>
 	</tr>

@@ -12,6 +12,8 @@ include(HEADER_TEMPLATE); ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?>"><?php echo $_SESSION['message']; ?></div>
 <?php endif; ?>
 
+<h2>Apartamento: <?php echo $apartamento['numero']; ?></h2>
+
 <dl class="row">
 	<dt class="col-md-2">ID: </dt>
 	<dd class="col-md-10"><?php echo $apartamento['id']; ?></dd>

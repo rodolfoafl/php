@@ -118,4 +118,11 @@
 	    return $lista;
 	}
 
+	function gerar($nome) {
+	    
+	    while($resultado = find_nome($nome) == null) {
+	        $nome = $nome . rand(1,9999);
+	    }
+	     return $resultado = $nome;
+	}
 ?>

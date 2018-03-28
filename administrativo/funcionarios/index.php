@@ -13,7 +13,11 @@ $funcionarios = listar('funcionarios');
 <style>
 	
 </style>
-
+<h2>Funcionarios</h2>
+<div class="col-sm-12 text-right h2">
+        <a class="btn btn-info my-2 my-sm-0" href="cadastrarFuncionario.php"><i class="fa fa-plus"></i> Novo Funcionario</a>
+        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fa fa-refresh"></i> Atualizar</a>
+</div>
 
 
 <?php if (!empty($_SESSION['message'])) : ?>

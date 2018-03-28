@@ -191,5 +191,25 @@
 	    return $select;
 	}
 	
+	function find_nome($login) {
+	    $database = open_database();
+	    $table = 'usuarios';
+	    $found = null;
+	   
+	        try {
+	            $sql = "SELECT * FROM $table WHERE `login` = '{$login}'";
+	            $result = $database->query($sql);
+	            if ($result->num_rows > 0 ) {
+	                $found = null;
+	            } else {
+	                $found = $login;
+	            }
+	        } catch (Exception $e) {
+	            $_SESSION['message'] = $e->GetMessage();
+	            $_SESSION['type'] = 'danger';
+	        }
+	    close_database($database);
+	    return $found;
+	}
 
 ?>

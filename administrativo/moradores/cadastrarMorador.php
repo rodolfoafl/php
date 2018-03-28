@@ -1,8 +1,6 @@
 <?php
 require_once('../functions.php');
 adicionarGenerico('morador', 'moradores');
-
-
 ?>
 
 <?php 
@@ -16,7 +14,7 @@ include(HEADER_TEMPLATE); ?>
 
     <div class="form-group col-md-4">
       <label for="name">Nome: </label>
-      <input type="text" class="form-control" name="morador['nome']" required>
+      <input id="nome" type="text" class="form-control" name="morador['nome']" onchange="gerarusuario(this.value)" required>
     </div>
     
     <div class="form-group col-md-4">
@@ -31,7 +29,10 @@ include(HEADER_TEMPLATE); ?>
     	
     <div class="form-group col-md-4">	
     	<label for="apartamentos">Apartamento</label>
-    	<div class="form-group col-md-12" id="apartamentos">
+    	<div  id="apartamentos">
+    	<select disabled class="form-control">
+    	<option selected >Nenhum condominio selecionado!</option>
+    	</select>
  		</div>
  	</div>
 
@@ -44,19 +45,19 @@ include(HEADER_TEMPLATE); ?>
     </div>
     
     <div class="form-group col-md-4">
-      <input type="text" class="form-control" name="morador['id_usuario']" value="1" hidden>
+      <input type="text" class="form-control" name="morador['id_usuario']" value="1" hidden="">
     </div>
   </div>
   
   <div class="row">
   	    <div class="form-group col-md-4">
       <label for="usuario">Usuário: </label>
-      <input type="text" class="form-control" name="usuario['login']" required disabled value="testeUsuario">
+      <input id="usuario" type="text" class="form-control" name="usuario['login']" required disabled>
     </div>
     
      <div class="form-group col-md-4">
       <label for="senha">Senha: </label>
-      <input type="text" class="form-control" name="usuario['senha']" required disabled value="testeSenha">
+      <input id="senha" type="text" class="form-control" name="usuario['senha']" required disabled>
     </div>
   </div>
 
@@ -84,6 +85,20 @@ function fetch_select(val){
               document.getElementById("apartamentos").innerHTML=response; 
              }
          });
+}
+
+function gerarusuario(nome){ 
+    	$.ajax({
+            type: 'post',
+            url: 'fetch_data.php',
+            data: {
+             usuario: nome
+            },
+            success: function (response) {
+            document.getElementById("usuario").value=response;  
+            document.getElementById("senha").value=response;  
+            }
+        });
 }
 </script>
 

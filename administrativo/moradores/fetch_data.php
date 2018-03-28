@@ -5,4 +5,8 @@ require_once('../../administrativo/functions.php');
         $id_condominio = $_POST['id_condominio'];
         echo $select = dropDownApt('apartamentos', $id_condominio, 'morador');
     }
+    if(isset($_POST['usuario'])){
+        $nome = $_POST['usuario'];
+        echo $usuario =  gerar($nome);
+    }
 ?>
