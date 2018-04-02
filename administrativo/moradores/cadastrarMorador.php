@@ -1,5 +1,6 @@
 <?php
 require_once('../functions.php');
+
 adicionarGenerico('morador', 'moradores');
 ?>
 
@@ -19,9 +20,14 @@ include(HEADER_TEMPLATE); ?>
     
     <div class="form-group col-md-4">
       <label for="cpf">CPF: </label>
-      <input type="text" class="form-control" name="morador['cpf']" required id="cpf">
+      <input type="text" class="form-control" name="morador['cpf']" required id="cpf" onchange="validarCPF(this.value)">
     </div>
+    
+    <div class="form-group col-md-4">
 
+      <input type="text" class="form-control" name="morador['id_usuario']" required id="id_usuario" hidden="">
+    </div>
+    
     <div class="form-group col-md-4">
       <label for="condominio">Condomínio</label>
 		<?php echo $select = dropDown('condominios', 'morador');?>
@@ -29,7 +35,7 @@ include(HEADER_TEMPLATE); ?>
     	
     <div class="form-group col-md-4">	
     	<label for="apartamentos">Apartamento</label>
-    	<div  id="apartamentos">
+    	<div id="apartamentos">
     	<select disabled class="form-control">
     	<option selected >Nenhum condominio selecionado!</option>
     	</select>
@@ -44,9 +50,7 @@ include(HEADER_TEMPLATE); ?>
       </select>
     </div>
     
-    <div class="form-group col-md-4">
-      <input type="text" class="form-control" name="morador['id_usuario']" value="1" hidden="">
-    </div>
+    
   </div>
   
   <div class="row">
@@ -91,14 +95,32 @@ function gerarusuario(nome){
     	$.ajax({
             type: 'post',
             url: 'fetch_data.php',
+            dataType: 'JSON',
             data: {
-             usuario: nome
+             login: nome
             },
             success: function (response) {
-            document.getElementById("usuario").value=response;  
-            document.getElementById("senha").value=response;  
+            document.getElementById("usuario").value=response[0];  
+            document.getElementById("senha").value=response[1];  
+            document.getElementById("id_usuario").value=response[2];  
             }
         });
+}
+
+function validarCPF(cpf){ 
+	$.ajax({
+        type: 'post',
+        url: 'fetch_data.php',
+        data: {
+         cpf: cpf
+        },
+        success: function (response) {
+        	if(!response){
+            	alert('CPF inválido!');
+            	document.getElementById("cpf").value='';  
+        	}
+        }
+    });
 }
 </script>
 

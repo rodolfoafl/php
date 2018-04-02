@@ -1,6 +1,7 @@
 <?php
 require_once('../../administrativo/functions.php');
 $moradores = listar('moradores');
+
 ?>
 <?php 
 	$_GET['titulo'] = 'Moradores / <small>Lista</small>';

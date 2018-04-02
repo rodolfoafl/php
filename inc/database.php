@@ -73,7 +73,13 @@
 			$_SESSION['message'] = 'Não foi possível realizar o cadastro.';
 			$_SESSION['type'] = 'danger';
 		}
+		
+		$ultimo_id = mysqli_insert_id($db);
 		close_database($db);
+		
+		if($table == 'usuarios'){
+		    return $ultimo_id;
+		}
 	}
 
 	function update($table = null, $id = 0, $data = null){
