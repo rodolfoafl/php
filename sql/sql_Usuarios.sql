@@ -7,3 +7,6 @@ create table if not exists usuarios(
     
     PRIMARY KEY(id)
 );
+
+INSERT INTO `usuarios`(`login`, `senha`, `status`, `nivel`) 
+VALUES ('admin', '$2y$10$XNJu/hB4EXc.flzVECCgSuwQRbfETgkWfKwEdlaQwG/X81IMZ5cM6', 1, 0);
