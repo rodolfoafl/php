@@ -1,6 +1,5 @@
 <?php
 require_once('../functions.php');
-
 adicionarGenerico('morador', 'moradores');
 ?>
 
@@ -12,6 +11,15 @@ include(HEADER_TEMPLATE); ?>
   <!-- area de campos do form -->
   
   <div class="row ">
+  
+  	<div class="form-group col-md-4">
+    	<p>
+		Síndico? <input type="checkbox" name="nivel" id="nivel" value="on"/> 
+		</p>
+	</div>
+	</div>
+	
+<div class="row ">
 
     <div class="form-group col-md-4">
       <label for="name">Nome: </label>
@@ -24,8 +32,7 @@ include(HEADER_TEMPLATE); ?>
     </div>
     
     <div class="form-group col-md-4">
-
-      <input type="text" class="form-control" name="morador['id_usuario']" required id="id_usuario" hidden="">
+      	<input type="text" class="form-control" name="morador['id_usuario']" required id="id_usuario" hidden="">
     </div>
     
     <div class="form-group col-md-4">
@@ -63,6 +70,7 @@ include(HEADER_TEMPLATE); ?>
       <label for="senha">Senha: </label>
       <input id="senha" type="text" class="form-control" name="usuario['senha']" required disabled>
     </div>
+    
   </div>
 
   <div id="actions" class="row">     
@@ -92,12 +100,18 @@ function fetch_select(val){
 }
 
 function gerarusuario(nome){ 
+	var chbox = document.getElementById("nivel");
+	var nivel = 2;
+	if(chbox.checked){
+		nivel = 1;
+	}
+		
     	$.ajax({
             type: 'post',
             url: 'fetch_data.php',
             dataType: 'JSON',
             data: {
-             login: nome
+             login: nome, nivel: nivel
             },
             success: function (response) {
             document.getElementById("usuario").value=response[0];  

@@ -20,7 +20,8 @@ include(HEADER_TEMPLATE); ?>
     
     <div class="form-group col-md-4">
       <label for="cpf">CPF: </label>
-      <input type="text" class="form-control" name="funcionario['cpf']" id="cpf" value="<?php echo $funcionario['cpf']; ?>">
+      <input type="text" class="form-control" name="funcionario['cpf']" id="cpf" value="<?php echo $funcionario['cpf']; ?>" 
+      onchange="validarCPF(this.value)">
     </div>
     
     <div class="form-group col-md-4">
@@ -51,6 +52,24 @@ include(HEADER_TEMPLATE); ?>
     </div>
   </div>
 </form>
+
+<script>
+function validarCPF(cpf){ 
+	$.ajax({
+        type: 'post',
+        url: '../moradores/fetch_data.php',
+        data: {
+         cpf: cpf
+        },
+        success: function (response) {
+        	if(!response){
+            	alert('CPF inválido!');
+            	document.getElementById("cpf").value='';  
+        	}
+        }
+    });
+}
+</script>
 
 <?php include(FOOTER_TEMPLATE); ?>
 

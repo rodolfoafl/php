@@ -2,6 +2,8 @@
 require_once('../../administrativo/functions.php');
 $moradores = listar('moradores');
 
+//print_r($_POST);
+
 ?>
 <?php 
 	$_GET['titulo'] = 'Moradores / <small>Lista</small>';

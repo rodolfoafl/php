@@ -38,6 +38,15 @@ include(HEADER_TEMPLATE); ?>
 	} else {
 		echo "Desativado";
 	}?></dd>
+	
+	
+	<dt class="col-md-2">Usuário: </dt>
+	<dd class="col-md-10"><?php 
+	
+	$usuario = detalhesGenerico($morador['id_usuario'], 'usuarios');
+	echo $usuario['login'];
+	
+	?></dd>
 </dl>
 
 	
@@ -48,7 +57,7 @@ include(HEADER_TEMPLATE); ?>
 
 <div id="actions" class="row">
 	<div class="col-md-12">
-	  <a href="editarApartamento.php?id=<?php echo $apartamento['id']; ?>" class="btn btn-info">Editar</a>
+	  <a href="editarMorador.php?id=<?php echo $morador['id']; ?>" class="btn btn-info">Editar</a>
 	  <a href="index.php" class="btn btn-default">Voltar</a>
 	</div>
 </div>

@@ -14,8 +14,6 @@ $condominios = listar('condominios');
 	
 </style>
 
-
-
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -37,7 +35,7 @@ $condominios = listar('condominios');
 	<tr>
 		<th>ID</th>
 		<th width="30%">Nome</th>
-		<th>Endereço</th>
+		<th>EndereÃ§o</th>
 		<th>Status</th>
 		<th></th>
 	</tr>

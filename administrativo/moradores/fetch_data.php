@@ -13,12 +13,15 @@ require_once('../../administrativo/functions.php');
     
     if(isset($_POST['login'])){
         $nome = strtolower($_POST['login']);
+        
+        //gerar senha aleatória ou usar 5 dígitos CPF
         $senha = '123456';
         
         $_POST['usuario']['login'] = $nome;
         $_POST['usuario']['senha'] = password_hash($senha, PASSWORD_DEFAULT);
         $_POST['usuario']['status'] = 1;
-        $_POST['usuario']['nivel'] = 2;
+        $_POST['usuario']['nivel'] = $_POST['nivel'];
+        
         
         $id = adicionarGenerico('usuario', 'usuarios');
         

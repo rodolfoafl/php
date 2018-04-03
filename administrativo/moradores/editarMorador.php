@@ -4,6 +4,7 @@ $id = $_GET['id'];
 $morador = find('moradores', $id);
 
 $apartamento = find('apartamentos', $morador['id_apartamento']);
+$usuario = find('usuarios', $morador['id_usuario']);
 editarGenerico('morador', 'moradores');
 ?>
 
@@ -13,16 +14,31 @@ include(HEADER_TEMPLATE); ?>
 
 
 <form action="editarMorador.php?id=<?php echo $morador['id']; ?>" method="post">
-  <hr />
+  
+  <div class="row ">
+  
+  	<div class="form-group col-md-4">
+    	<p>
+    	Síndico? 
+		<input type="checkbox" name="nivel" id="nivel" value="on" 
+		<?php if($usuario['nivel'] == 1){?>
+			checked
+		<?php }?>
+		/>
+		</p>
+	</div>
+	</div>
+  
   <div class="row">
     <div class="form-group col-md-4">
       <label for="name">Nome: </label>
-      <input type="text" class="form-control" name="morador['nome']" value="<?php echo $morador['nome']; ?>">
+      <input type="text" class="form-control" name="morador['nome']" required value="<?php echo $morador['nome']; ?>">
     </div>
     
     <div class="form-group col-md-4">
       <label for="cpf">CPF: </label>
-      <input type="text" class="form-control" name="morador['cpf']" value="<?php echo $morador['cpf']; ?>">
+      <input type="text" class="form-control" name="morador['cpf']" required id="cpf" value="<?php echo $morador['cpf']; ?>"
+      onchange="validarCPF(this.value)">
     </div>
     
     <div class="form-group col-md-4">
@@ -68,6 +84,22 @@ function fetch_select(val){
               document.getElementById("apartamentos").innerHTML=response; 
              }
          });
+}
+
+function validarCPF(cpf){ 
+	$.ajax({
+        type: 'post',
+        url: 'fetch_data.php',
+        data: {
+         cpf: cpf
+        },
+        success: function (response) {
+        	if(!response){
+            	alert('CPF inválido!');
+            	document.getElementById("cpf").value=''; 
+        	}
+        }
+    });
 }
 </script>
 
