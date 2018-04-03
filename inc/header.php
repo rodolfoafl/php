@@ -34,10 +34,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse justify-content-end">
-      
-      <a class="btn btn-info my-2 my-sm-0" href="<?php echo BASEURL;?>login.php">Entrar</a>
-  </div>
+
 </nav>
 
 

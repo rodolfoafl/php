@@ -1,17 +1,17 @@
 <?php
-// A sessão precisa ser iniciada em cada página diferente
+// A sessï¿½o precisa ser iniciada em cada pï¿½gina diferente
 if (!isset($_SESSION)) session_start();
 
 
 $nivel_necessario = 2;
 
-// Verifica se não há a variável da sessão que identifica o usuário
+// Verifica se nï¿½o hï¿½ a variï¿½vel da sessï¿½o que identifica o usuï¿½rio
 if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] <$nivel_necessario)) {
-    // Destrói a sessão por segurança
+    // Destrï¿½i a sessï¿½o por seguranï¿½a
     session_destroy();
     // Redireciona o visitante de volta pro login
     
-    header("Location: login.php"); exit;
+    header("Location: index.php"); exit;
 }
 // Se chegar aqui ele carrega a pagina
 
