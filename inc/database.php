@@ -86,7 +86,7 @@
 		$db = open_database();
 
 		$itens = null;
-
+		
 		foreach($data as $key => $value){
 		    $v = preg_replace('/\s+/', ' ', trim($value));
 			$itens .= trim($key, "'") . "='$v',";

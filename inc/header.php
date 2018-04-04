@@ -12,11 +12,11 @@
     $titulo = 'Sistema ADMC';
   };
   
-  if($_SESSION['nivel_pagina'] != 99){
+  if($_SESSION['nivel_pagina'] != -1){
          
     if(!isset($_SESSION['nivel']) || ($_SESSION['nivel']) != $_SESSION['nivel_pagina']){
       session_destroy();
-      header('Location: http://google.com');
+      header('Location: ../index.php');
     }
   }
  

@@ -5,12 +5,13 @@ $morador = detalhesGenerico($_GET['id'], 'moradores');
 
 <?php 
 $_GET['titulo'] = 'Detalhes Morador / ' . '<small>'.$morador['nome'].'</small>';
+
+session_start();
+$_SESSION['nivel_pagina'] = 0;
 include(HEADER_TEMPLATE); ?>
 
 
-<?php if (!empty($_SESSION['message'])) : ?>
-	<div class="alert alert-<?php echo $_SESSION['type']; ?>"><?php echo $_SESSION['message']; ?></div>
-<?php endif; ?>
+
 
 <h2>Morador: <?php echo $morador['nome']; ?></h2>
 

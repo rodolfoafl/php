@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['nivel_pagina'] = 0;
+
 require_once('../../administrativo/functions.php');
 
     if(isset($_POST['id_condominio'])){

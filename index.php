@@ -5,7 +5,7 @@
 	$_GET['titulo'] = 'Dashboard';
 	
 	session_start();
-	$_SESSION['nivel_pagina'] = 99;
+	$_SESSION['nivel_pagina'] = -1;
 	
 	include(HEADER_TEMPLATE);
 	
