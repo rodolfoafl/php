@@ -4,8 +4,12 @@
 
 	$_GET['titulo'] = 'Dashboard';
 	
-	include(HEADER_TEMPLATE);
 	session_start();
+	$_SESSION['nivel_pagina'] = 99;
+	
+	include(HEADER_TEMPLATE);
+	
+	
 
 ?>
 	<p>
@@ -28,6 +32,7 @@
 	</div>
 	
 	<?php if(isset($_SESSION['msg'])) echo $_SESSION['msg'];?>
+	<?php $_SESSION['msg'] = null; ?>
 
 
 <?php 

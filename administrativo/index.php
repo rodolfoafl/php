@@ -3,6 +3,8 @@ require_once '../config.php';
 require_once DBAPI;
 
 $_GET['titulo'] = 'Dashboard';
+session_start();
+$_SESSION['nivel_pagina'] = 0;
 
 include(HEADER_TEMPLATE);
 $db = open_database();

@@ -37,17 +37,22 @@ session_start();
       header('Location: index.php');
   }
   
+  $_SESSION['id_usuario'] = $found['id'];
+  
   switch($nivel){
       //ADMINISTRADOR
       case 0:
+          $_SESSION['nivel'] = $nivel;
           header('Location: administrativo/index.php');
           break;
       //SINDICO
       case 1:
+          $_SESSION['nivel'] = $nivel;
           header('Location: sindico/index.php');
           break;
       //MORADOR    
       case 2:
+          $_SESSION['nivel'] = $nivel;
           header('Location: morador/index.php');
           break;
   }

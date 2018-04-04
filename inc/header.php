@@ -11,6 +11,17 @@
     $gerar = 0;
     $titulo = 'Sistema ADMC';
   };
+  
+  if($_SESSION['nivel_pagina'] != 99){
+         
+    if(!isset($_SESSION['nivel']) || ($_SESSION['nivel']) != $_SESSION['nivel_pagina']){
+      session_destroy();
+      header('Location: http://google.com');
+    }
+  }
+ 
+  
+  
     ?>
 	<?php echo '<title> '.strip_tags($titulo) .'</title>'?>
 	<meta name="description" content="">
