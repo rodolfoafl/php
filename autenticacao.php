@@ -38,7 +38,7 @@ session_start();
   }
   
   $_SESSION['id_usuario'] = $found['id'];
-  
+  $_SESSION['login'] = $found['login'];
   switch($nivel){
       //ADMINISTRADOR
       case 0:

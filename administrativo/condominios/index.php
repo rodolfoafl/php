@@ -2,13 +2,10 @@
 require_once('../../administrativo/functions.php');
 $condominios = listar('condominios');
 ?>
+
 <?php 
-	$_GET['titulo'] = 'Condominios / <small>Lista</small>';
-    $_GET['cadastrar'] = 'cadastrarCondominio';
-    $_GET['atualizar'] = 'index';
-    $_GET['modo'] = 'index2';
- ?>
-<?php include(HEADER_TEMPLATE); ?>
+	$_GET['titulo'] = 'Condomínios';
+	include(HEADER_TEMPLATE); ?>
 
 <style>
 	

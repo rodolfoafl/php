@@ -13,14 +13,6 @@ include(HEADER_TEMPLATE); ?>
 <form action="cadastrarMorador.php" method="post">
   <!-- area de campos do form -->
   
-  <div class="row ">
-  
-  	<div class="form-group col-md-4">
-    	<p>
-		Síndico? <input type="checkbox" name="nivel" id="nivel" value="on"/> 
-		</p>
-	</div>
-	</div>
 	
 <div class="row ">
 
@@ -74,6 +66,13 @@ include(HEADER_TEMPLATE); ?>
       <input id="senha" type="text" class="form-control" name="usuario['senha']" required disabled>
     </div>
     
+  </div>
+
+  <div class="row ">
+  
+    <div class="form-group col-md-4 nivel">
+    <input type="checkbox" name="nivel" id="nivel" value="on"/> Síndico
+  </div>
   </div>
 
   <div id="actions" class="row">     

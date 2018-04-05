@@ -8,7 +8,8 @@ $funcionarios = listar('funcionarios');
     $_GET['atualizar'] = 'index';
     $_GET['modo'] = 'index2';
  ?>
-<?php include(HEADER_TEMPLATE); ?>
+<?php 
+include(HEADER_TEMPLATE); ?>
 
 <style>
 	
