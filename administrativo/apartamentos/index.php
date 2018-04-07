@@ -3,10 +3,8 @@ require_once('../../administrativo/functions.php');
 $apartamentos = listar('apartamentos');
 ?>
 <?php 
-	$_GET['titulo'] = 'Apartamentos / <small>Lista</small>';
-    $_GET['cadastrar'] = 'cadastrarApartamento';
-    $_GET['atualizar'] = 'index';
-    $_GET['modo'] = 'index2';
+	$_GET['titulo'] = 'Apartamentos';
+
  ?>
 <?php include(HEADER_TEMPLATE); ?>
 

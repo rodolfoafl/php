@@ -26,6 +26,10 @@ $('#delete-modal').on('show.bs.modal', function (event) {
   		modal.find('.modal-title').text('Excluir Morador #' + id);
   		modal.find('#confirm').attr('href', 'deletarMorador.php?id=' + id);
   		break;
+  	case "aviso":
+  		modal.find('.modal-title').text('Excluir Aviso #' + id);
+  		modal.find('#confirm').attr('href', 'deletarAviso.php?id=' + id);
+  		break;
   }
   
 })

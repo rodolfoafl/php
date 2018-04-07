@@ -35,7 +35,7 @@
 			}else{
 			    salvar($tabela, $obj);
 			}
-            header('location: index.php');
+			header('location:'.BASEURL.$_SESSION['index']);
 		}
 	}
 	
@@ -73,7 +73,7 @@
 				$obj = find($tabela, $id);
 			}
 		}else{
-			header('location: index.php');
+			header('location:'.BASEURL.$_SESSION['index']);
 		}
 	}
 

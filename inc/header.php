@@ -3,7 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-  <?php 
+  <?php
+  if(isset($_GET['sair'])){
+      session_destroy();
+      header('Location: '. BASEURL);
+      exit;
+  }
+  
   if(isset($_GET['titulo'])) { 
     $gerar = 1;
     $titulo = $_GET['titulo'];
@@ -37,6 +43,7 @@
     }
   }
  
+  $_SESSION['index'] = $index;
   
     ?>
 	<?php echo '<title> '.strip_tags($titulo) .'</title>'?>
@@ -50,8 +57,7 @@
 	</style>
 
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-	
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -63,7 +69,10 @@
   <div class="collapse navbar-collapse justify-content-end">
       <?php 
         if(isset($_SESSION['login'])) {
-          echo '<div class="nome"> Usuario: ' .$_SESSION['login'] .'(' .$index .')' .'</div>';
+          echo '<div class="nome">' .$_SESSION['login'].'
+            <a class="btn btn-info my-2 my-sm-0" href="index.php?sair=1">Sair</a>
+           </div>';
+          
         } else {
           echo '<a class="btn btn-info my-2 my-sm-0" href="index.php">Entrar</a>';
         }

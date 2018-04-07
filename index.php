@@ -5,9 +5,6 @@
 	$_GET['titulo'] = 'Dashboard';
 	
 	include(HEADER_TEMPLATE);
-	
-	
-
 ?>
 	<p>
 		<strong>BEM VINDO. FAÇA O LOGIN</strong>
@@ -29,7 +26,7 @@
 	</div>
 	
 	<?php if(isset($_SESSION['msg'])) echo $_SESSION['msg'];?>
-	<?php $_SESSION['msg'] = null; ?>
+	
 
 
 <?php 
