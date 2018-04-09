@@ -1,5 +1,5 @@
 <?php
-    require_once('../functions.php');
+    require_once('../../functions.php');
     $condominios = listar('condominios');
 ?>
 <?php 
@@ -42,7 +42,7 @@
 				<p class="card-text">Desativado</p>
 				<?php endif; ?>
 				<a href="detalhesCondominio.php?id=<?php echo $condominio['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-	<a href="editarCondominio.php?id=<?php echo $condominio['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+	<a href="editarCondominio.php?id=<?php echo $condominio['id']; ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
 	<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $condominio['id']; ?>"><i class="fa fa-trash"></i> Excluir</a>
 			</div>
 			<div class="card-footer text-muted">

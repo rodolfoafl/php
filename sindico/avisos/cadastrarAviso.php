@@ -1,5 +1,5 @@
 <?php
-require_once('../../administrativo/functions.php');
+require_once('../../functions.php');
 adicionarGenerico('aviso', 'avisos');
 
 ?>
@@ -7,6 +7,7 @@ adicionarGenerico('aviso', 'avisos');
 <?php 
 $_GET['titulo'] = 'Novo Aviso';
 include(HEADER_TEMPLATE); ?>
+
 
 <form action="cadastrarAviso.php" method="post">
   <!-- area de campos do form -->

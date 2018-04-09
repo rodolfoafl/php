@@ -4,6 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <?php
+  require_once(ABSPATH .'functions.php');
+  if(!isset($_SESSION)) {
+      session_start();
+  }
   if(isset($_GET['sair'])){
       session_destroy();
       header('Location: '. BASEURL);
@@ -11,40 +15,13 @@
   }
   
   if(isset($_GET['titulo'])) { 
-    $gerar = 1;
     $titulo = $_GET['titulo'];
   } else {
-    $gerar = 0;
     $titulo = 'Sistema ADMC';
   };
-  if(!isset($_SESSION)) {
-      session_start();
-  }
-  $dir = getcwd();
-  if(strpos( $dir , 'administrativo') > 0) {
-    $index = 'administrativo';
-    $nivel_pagina = 0;
-  } else if(strpos( $dir , 'sindico') > 0) {
-    $index = 'sindico';
-    $nivel_pagina = 1;
-  } else if(strpos( $dir , 'morador') > 0) {
-    $index = 'morador';
-    $nivel_pagina = 2;
-  }
-  else if(!isset($_SESSION['nivel'])){
-    $nivel_pagina = -1;
-    $index = 'index.php';
-  }
-  if($nivel_pagina != -1){
-         
-    if(!isset($_SESSION['nivel']) || ($_SESSION['nivel']) != $nivel_pagina){
-      session_destroy();
-      header('Location:' .BASEURL);
-    }
-  }
- 
-  $_SESSION['index'] = $index;
   
+  $index= '';
+  validar_acesso();
     ?>
 	<?php echo '<title> '.strip_tags($titulo) .'</title>'?>
 	<meta name="description" content="">

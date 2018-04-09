@@ -1,5 +1,5 @@
 <?php
-require_once('../../administrativo/functions.php');
+require_once('../../functions.php');
 $apartamentos = listar('apartamentos');
 ?>
 <?php 
@@ -24,7 +24,7 @@ $apartamentos = listar('apartamentos');
 <h2>Apartamentos</h2>
 <div class="col-sm-12 text-right h2">
         <a class="btn btn-info my-2 my-sm-0" href="cadastrarApartamento.php"><i class="fa fa-plus"></i> Novo Apartamento</a>
-        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fa fa-refresh"></i> Atualizar</a>
+        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fas fa-sync"></i> Atualizar</a>
 </div>
 
 
@@ -59,7 +59,7 @@ $apartamentos = listar('apartamentos');
 		?></td>
 		<td class="actions text-right">
 			<a href="detalhesApartamento.php?id=<?php echo $apartamento['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="editarApartamento.php?id=<?php echo $apartamento['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="editarApartamento.php?id=<?php echo $apartamento['id']; ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
 			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $apartamento['id']; ?>"
 			data-classe="apartamento">
 				<i class="fa fa-trash"></i> Excluir

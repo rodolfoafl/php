@@ -1,5 +1,5 @@
 <?php
-require_once('../../administrativo/functions.php');
+require_once('../../functions.php');
 $avisos = listar('avisos');
 ?>
 <?php 
@@ -58,7 +58,7 @@ include(HEADER_TEMPLATE); ?>
 		?></td>
 		<td class="actions text-right">
 			<a href="detalhesAviso.php?id=<?php echo $aviso['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="editarAviso.php?id=<?php echo $aviso['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="editarAviso.php?id=<?php echo $aviso['id']; ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
 			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $aviso['id']; ?>"
 			data-classe="aviso">
 				<i class="fa fa-trash"></i> Excluir

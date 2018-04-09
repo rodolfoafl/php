@@ -15,7 +15,7 @@ $db = open_database();
 			<a href="condominios/index.php" class="btn btn-info">				
 				<div class="row">					
 					<div class="col-xs-12 text-center">						
-						<i class="fa fa-plus fa-5x"></i>					
+						<i class="fas fa-list fa-5x"></i>					
 					</div>					
 					<div class="col-xs-12 text-center">						
 						<p>Gerenciar condomínios</p>					
@@ -28,7 +28,7 @@ $db = open_database();
 			<a href="apartamentos/index.php" class="btn btn-info">				
 				<div class="row">					
 					<div class="col-xs-12 text-center">						
-						<i class="fa fa-plus fa-5x"></i>					
+						<i class="fa fa-building fa-5x"></i>					
 					</div>					
 					<div class="col-xs-12 text-center">						
 						<p>Gerenciar apartamentos</p>					
@@ -41,7 +41,7 @@ $db = open_database();
 			<a href="funcionarios/index.php" class="btn btn-info">				
 				<div class="row">					
 					<div class="col-xs-12 text-center">						
-						<i class="fa fa-plus fa-5x"></i>					
+						<i class="fa fa-handshake fa-5x"></i>					
 					</div>					
 					<div class="col-xs-12 text-center">						
 						<p>Gerenciar funcionários</p>					
@@ -54,7 +54,7 @@ $db = open_database();
 			<a href="moradores/index.php" class="btn btn-info">				
 				<div class="row">					
 					<div class="col-xs-12 text-center">						
-						<i class="fa fa-plus fa-5x"></i>					
+						<i class="fa fa-users fa-5x"></i>					
 					</div>					
 					<div class="col-xs-12 text-center">						
 						<p>Gerenciar moradores</p>					

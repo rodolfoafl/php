@@ -1,5 +1,5 @@
 <?php
-require_once('../../administrativo/functions.php');
+require_once('../../functions.php');
 $moradores = listar('moradores');
 
 //print_r($_POST);
@@ -29,7 +29,7 @@ $moradores = listar('moradores');
 <h2>Moradores</h2>
 <div class="col-sm-12 text-right h2">
         <a class="btn btn-info my-2 my-sm-0" href="cadastrarMorador.php"><i class="fa fa-plus"></i> Novo Morador</a>
-        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fa fa-refresh"></i> Atualizar</a>
+        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fas fa-sync"></i> Atualizar</a>
 </div>
 
 
@@ -72,7 +72,7 @@ $moradores = listar('moradores');
 		?></td>
 		<td class="actions text-right">
 			<a href="detalhesMorador.php?id=<?php echo $morador['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="editarMorador.php?id=<?php echo $morador['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="editarMorador.php?id=<?php echo $morador['id']; ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
 			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $morador['id']; ?>"
 			data-classe="morador">
 				<i class="fa fa-trash"></i> Excluir

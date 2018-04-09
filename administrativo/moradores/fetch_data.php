@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['nivel_pagina'] = 0;
 
-require_once('../../administrativo/functions.php');
+require_once('../../functions.php');
 
     if(isset($_POST['id_condominio'])){
         $id_condominio = $_POST['id_condominio'];

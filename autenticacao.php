@@ -36,24 +36,29 @@ session_start();
       $_SESSION['msg'] = 'Usuário não encontrado!';
       header('Location: index.php');
   }
-  
-  $_SESSION['id_usuario'] = $found['id'];
-  $_SESSION['login'] = $found['login'];
-  switch($nivel){
-      //ADMINISTRADOR
-      case 0:
-          $_SESSION['nivel'] = $nivel;
-          header('Location: administrativo/index.php');
-          break;
-      //SINDICO
-      case 1:
-          $_SESSION['nivel'] = $nivel;
-          header('Location: sindico/index.php');
-          break;
-      //MORADOR    
-      case 2:
-          $_SESSION['nivel'] = $nivel;
-          header('Location: morador/index.php');
-          break;
-  }
+   
+  if($nivel >= 0) {
+      $_SESSION['id_usuario'] = $found['id'];
+      $_SESSION['login'] = $found['login'];
+      switch($nivel){
+          //ADMINISTRADOR
+          case 0:
+              $_SESSION['nivel'] = $nivel;
+              $_SESSION['index'] = 'administrativo';
+              header('Location: administrativo/index.php');
+              break;
+              //SINDICO
+          case 1:
+              $_SESSION['nivel'] = $nivel;
+              $_SESSION['index'] = 'sindico';
+              header('Location: sindico/index.php');
+              break;
+              //MORADOR
+          case 2:
+              $_SESSION['nivel'] = $nivel;
+              $_SESSION['index'] = 'morador';
+              header('Location: morador/index.php');
+              break;
+      }
+  }  
 ?>

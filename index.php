@@ -2,8 +2,7 @@
 	require_once 'config.php';
 	require_once DBAPI;
 
-	$_GET['titulo'] = 'Dashboard';
-	
+	$_GET['titulo'] = 'Entrar';
 	include(HEADER_TEMPLATE);
 ?>
 	<p>

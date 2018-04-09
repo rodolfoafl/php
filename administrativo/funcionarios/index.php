@@ -1,5 +1,5 @@
 <?php
-require_once('../../administrativo/functions.php');
+require_once('../../functions.php');
 $funcionarios = listar('funcionarios');
 ?>
 <?php 
@@ -17,7 +17,7 @@ include(HEADER_TEMPLATE); ?>
 <h2>Funcionarios</h2>
 <div class="col-sm-12 text-right h2">
         <a class="btn btn-info my-2 my-sm-0" href="cadastrarFuncionario.php"><i class="fa fa-plus"></i> Novo Funcionario</a>
-        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fa fa-refresh"></i> Atualizar</a>
+        <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fas fa-sync"></i> Atualizar</a>
 </div>
 
 
@@ -66,7 +66,7 @@ include(HEADER_TEMPLATE); ?>
 		?></td>
 		<td class="actions text-right">
 			<a href="detalhesFuncionario.php?id=<?php echo $funcionario['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="editarFuncionario.php?id=<?php echo $funcionario['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="editarFuncionario.php?id=<?php echo $funcionario['id']; ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
 			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-object="<?php echo $funcionario['id']; ?>"
 			data-classe="funcionario">
 				<i class="fa fa-trash"></i> Excluir

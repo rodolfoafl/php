@@ -1,5 +1,5 @@
 <?php
-require_once('../functions.php');
+require_once('../../functions.php');
 $id = $_GET['id'];
 $funcionario = find('funcionarios', $id);
 editarGenerico('funcionario', 'funcionarios');
