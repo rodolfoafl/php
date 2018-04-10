@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['nivel_pagina'] = 0;
+
 
 require_once('../../functions.php');
 

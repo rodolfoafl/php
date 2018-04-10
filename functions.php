@@ -15,6 +15,9 @@
 		return find_all($tabela);
 	}
 	
+	function buscar($tabela, $id) {
+	    return find($tabela, $id);
+	}
 
 	/*function adicionar(){
 		if(!empty($_POST['condominio'])){
@@ -35,7 +38,7 @@
 			}else{
 			    salvar($tabela, $obj);
 			}
-			header('Location: ' . $_SERVER['HTTP_REFERER']);
+			header('Location: ' .BASEURL);
 			exit;
 		}
 	}
@@ -74,7 +77,7 @@
 				$obj = find($tabela, $id);
 			}
 		}else{
-		    header('location:'.BASEURL.$_SERVER['HTTP_REFERER']);
+		    header('location:'.BASEURL);
 		}
 	}
 

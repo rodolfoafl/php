@@ -5,9 +5,6 @@ $morador = detalhesGenerico($_GET['id'], 'moradores');
 
 <?php 
 $_GET['titulo'] = 'Detalhes Morador / ' . '<small>'.$morador['nome'].'</small>';
-
-session_start();
-$_SESSION['nivel_pagina'] = 0;
 include(HEADER_TEMPLATE); ?>
 
 

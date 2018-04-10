@@ -3,10 +3,7 @@ require_once('../../functions.php');
 $funcionarios = listar('funcionarios');
 ?>
 <?php 
-	$_GET['titulo'] = 'Funcionários / <small>Lista</small>';
-    $_GET['cadastrar'] = 'cadastrarFuncionario';
-    $_GET['atualizar'] = 'index';
-    $_GET['modo'] = 'index2';
+	$_GET['titulo'] = 'Funcionários';
  ?>
 <?php 
 include(HEADER_TEMPLATE); ?>
@@ -19,15 +16,6 @@ include(HEADER_TEMPLATE); ?>
         <a class="btn btn-info my-2 my-sm-0" href="cadastrarFuncionario.php"><i class="fa fa-plus"></i> Novo Funcionario</a>
         <a class="btn btn-info my-2 my-sm-0" href="index.php" ><i class="fas fa-sync"></i> Atualizar</a>
 </div>
-
-
-<?php if (!empty($_SESSION['message'])) : ?>
-	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<?php echo $_SESSION['message']; ?>
-	</div>
-	<?php clear_messages(); ?>
-<?php endif; ?>
 
 
 

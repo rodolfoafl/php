@@ -7,13 +7,6 @@ $moradores = listar('moradores');
 ?>
 <?php 
 	$_GET['titulo'] = 'Moradores / <small>Lista</small>';
-    $_GET['cadastrar'] = 'cadastrarMorador';
-    $_GET['atualizar'] = 'index';
-    $_GET['modo'] = 'index2';
-    
-    session_start();
-    $_SESSION['nivel_pagina'] = 0;
-    
 
  ?>
 <?php include(HEADER_TEMPLATE); ?>

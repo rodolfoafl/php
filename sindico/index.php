@@ -50,6 +50,8 @@ $db = open_database();
 		</p>		
 	</div>	
 <?php endif; ?>	
+Ultimas alterações:
 
+<?php include(LOG);?>
 <?php 
 include(FOOTER_TEMPLATE); ?>

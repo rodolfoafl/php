@@ -1,7 +1,6 @@
 <?php
 require_once 'config.php';
 require_once DBAPI;
-
 session_start();
 ?>
 
@@ -27,14 +26,17 @@ session_start();
           }else{
               $_SESSION['msg'] = 'Senha incorreta. Tente novamente.';
               header('Location: index.php');
+              exit();
           }       
       }else{
           $_SESSION['msg'] = 'Usuário desativado. Entre em contato com o Administrador.';
           header('Location: index.php');
+          exit();
       }
   }else{
       $_SESSION['msg'] = 'Usuário não encontrado!';
       header('Location: index.php');
+      exit();
   }
    
   if($nivel >= 0) {

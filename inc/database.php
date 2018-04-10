@@ -48,12 +48,31 @@
 		return find($table);	
 	}
 
+	function salvar_log($obj = null, $mensagem, $tipo ='primary', $tabela){
+	    $db = open_database();
+	    
+	    $sql = "INSERT INTO `log` (objeto, mensagem, tipo, tabela) VALUES ('{$obj}','{$mensagem}', '{$tipo}', '{$tabela}');";
+	    
+	    try{
+	        $db->query($sql);
+	        $_SESSION['message'] = ' Cadastro realizado com sucesso.';
+	        $_SESSION['type'] = 'success';
+	    }catch(Exception $e){
+	        $_SESSION['message'] = 'Não foi possível realizar o cadastro.';
+	        $_SESSION['type'] = 'danger';
+	    }
+	    
+	    close_database($db);
+	    
+	}
+	
 	function salvar($table = null, $data){
 		$db = open_database();
-
+        
 		$col = null;
 		$val = null;
 
+		
 		foreach($data as $key => $value){
 			$col .= trim($key, "'") . ",";
 			$v = preg_replace('/\s+/', ' ', trim($value));
@@ -67,19 +86,22 @@
 
 		try{
 			$db->query($sql);
-			$_SESSION['message'] = 'Cadastro realizado com sucesso.';
+			$_SESSION['message'] = ' Cadastrado com sucesso.';
 			$_SESSION['type'] = 'success';
 		}catch(Exception $e){
 			$_SESSION['message'] = 'Não foi possível realizar o cadastro.';
 			$_SESSION['type'] = 'danger';
 		}
-		
+		$mensagem = $_SESSION['message'];
+		$tipo = $_SESSION['type'];
 		$ultimo_id = mysqli_insert_id($db);
-		close_database($db);
-		
 		if($table == 'usuarios'){
 		    return $ultimo_id;
 		}
+		
+		salvar_log($ultimo_id,$mensagem, $tipo, $table);
+		close_database($db);
+			
 	}
 
 	function update($table = null, $id = 0, $data = null){
@@ -97,12 +119,16 @@
 
 		try {	    
 			$db->query($sql);		    
-			$_SESSION['message'] = 'Item atualizado com sucesso.';	    
+			$_SESSION['message'] = ' Atualizado com sucesso.';	    
 			$_SESSION['type'] = 'success';		  
 		} catch (Exception $e) { 		    
-			$_SESSION['message'] = 'Nao foi possivel atualizar o item.';	    
+			$_SESSION['message'] = 'Nao foi possivel atualizar o item. ';	    
 			$_SESSION['type'] = 'danger';	  
 		} 
+		$mensagem = $_SESSION['message'];
+		$tipo = $_SESSION['type'];
+		
+		salvar_log($id,$mensagem, $tipo, $table);
 		close_database($db);
 	}
 
@@ -120,10 +146,13 @@
 			}
 
 		}catch(Exception $e){
-			$_SESSION['message'] = "Não foi possívl remover o item.";
+			$_SESSION['message'] = "Não foi possível remover o item. ";
 			$_SESSION['type'] = "danger";
 		}
+		$mensagem = $_SESSION['message'];
+		$tipo = $_SESSION['type'];
 
+		salvar_log($id,$mensagem, $tipo, $table);
 		close_database($db);
 	}
 
@@ -217,5 +246,7 @@
 	    close_database($database);
 	    return $found;
 	}
+	
+	
 
 ?>

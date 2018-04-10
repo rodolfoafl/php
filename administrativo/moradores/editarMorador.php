@@ -10,8 +10,6 @@ editarGenerico('morador', 'moradores');
 
 <?php 
 $_GET['titulo'] = 'Editar Morador / ' . '<small>'.$morador['nome'].'</small>';
-session_start();
-$_SESSION['nivel_pagina'] = 0;
 include(HEADER_TEMPLATE); ?>
 
 

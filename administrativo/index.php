@@ -1,13 +1,11 @@
 <?php
 require_once '../config.php';
 require_once DBAPI;
-
 $_GET['titulo'] = 'Dashboard';
 
 include(HEADER_TEMPLATE);
 $db = open_database();
 ?>
-
 
 <?php if($db): ?>
 	<div class="row">		
@@ -64,13 +62,17 @@ $db = open_database();
 		</div>
 	
 </div>	
-<?php else : ?>		
+<?php else : ?>	
 	<div class="alert alert-danger" role="alert">			
 		<p>
 			<strong>ERRO:</strong> Não foi possível conectar ao banco de dados!
 		</p>		
 	</div>	
 <?php endif; ?>	
+Ultimas alterações:
+
+<?php include(LOG);?>
+
 
 <?php 
 include(FOOTER_TEMPLATE); ?>

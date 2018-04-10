@@ -5,9 +5,6 @@ adicionarGenerico('morador', 'moradores');
 
 <?php 
 $_GET['titulo'] = 'Novo Morador';
-
-session_start();
-$_SESSION['nivel_pagina'] = 0;
 include(HEADER_TEMPLATE); ?>
 
 <form action="cadastrarMorador.php" method="post">
